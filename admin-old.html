@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/style.css" />
+<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+</head>
+
+<body class="h-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-warning" href="#">
+        App Admin Panel
+      </a>
+
+            <div class="dropdown navbar-right">
+                <button id="user-email" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          akyabcoder@gmail.com
+        </button>
+
+                <div class="dropdown-menu" aria-labeledby="user-email">
+                    <a class="dropdown-item" id="btn-logout" href="#">
+            Logout
+          </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row h-100 bg-light">
+        <div class="col-lg-2 bg-warning">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" id="txtclick" href="#" onclick="switchView('views/images.html')">
+                        <span class="text-danger">Images</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="switchView('views/categories.html')">
+                        <span class="text-danger">Categories</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-10">
+            <div class="container" id="container">
+                <script>
+                    $("container").html("view/dashboard.html");
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (!user) {
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</body>
+
+</html>

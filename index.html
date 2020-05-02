@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>RMA Login Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <div id="login-card" class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-12 col-xl-10">
+                <div class="card shadow-lg o-hidden border-0 my-5">
+                    <div class="card-body p-0">
+                        <div class="row" style="padding-top: 50px;">
+                            <div class="col-lg-6 d-none d-lg-flex" style="height: 541px;">
+                                <img class="d-lg-flex align-self-center m-auto" src="/img/logo.png?h=b5f6e96dc53befd478c11e5fdb47348d" width="250px" height="250px" />
+                            </div>
+                            <div class="col-lg-6" style="height: 540px; padding-top: 50px;">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h4 class="text-dark mb-4">RMA Admin Login</h4>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <input id="email" class="form-control form-control-user" type="email" aria-describedby="emailHelp" placeholder="Mail" name="email" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input id="password" class="form-control form-control-user" type="password" placeholder="Password" name="password" />
+                                        </div>
+                                        <!-- Start: Icon Button --><button id="btn-login" class="btn btn-warning btn-block text-uppercase text-center text-white border rounded shadow-sm icon-button btn-user" type="button" border-radius="10rem">
+                        <i class="fa fa-sign-in"></i><span>&nbsp; Log In</span>
+                      </button>
+                                        <!-- End: Icon Button -->
+                                        <hr />
+                                    </form>
+                                    <div class="text-center">
+                                        <a class="small" href="register.html">Create an Account!</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+    <script>
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          window.location.href = "admin.html";
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
