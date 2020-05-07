@@ -1,24 +1,42 @@
-#login-card{
-    width:450px;
-    margin:150px auto;
+#login-card {
+  width: 450px;
+  margin: 150px auto;
 }
 
-#container{
-    margin-top:25px;
+#container {
+  margin-top: 25px;
 }
-#t{
+#t {
   color: red;
 }
 form.user .form-control-user {
-  font-size: .8rem;
+  font-size: 0.8rem;
   border-radius: 10rem;
   padding: 1.5rem 1rem;
 }
 
 form.user .btn-user {
-  font-size: .8rem;
+  font-size: 0.8rem;
   border-radius: 10rem;
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
 }
 
+#post-desc{
+  font-family: Unicode;
+}
 
+@font-face {
+  font-family: "Zawgyi-One";
+  src: url("https://cdn.rawgit.com/LeonarAung/MyanmarFont/6cf1262f/zawgyi.ttf")
+      format("woff"),
+    url("https://cdn.rawgit.com/LeonarAung/MyanmarFont/6cf1262f/zawgyi.ttf")
+      format("ttf");
+}
+
+@font-face {
+  font-family: "Unicode";
+  src: url("https://cdn.rawgit.com/LeonarAung/MyanmarFont/6cf1262f/mon3.woff")
+      format("woff"),
+    url("https://cdn.rawgit.com/LeonarAung/MyanmarFont/6cf1262f/mon3.ttf")
+      format("ttf");
+}

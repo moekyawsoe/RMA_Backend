@@ -2,10 +2,18 @@
 
 <hr />
 
-<div class="container">
-    <div class="row" id="posts-collection">
-        <hr />
+<div class="row">
+    <div class="col-lg-7">
+        <table class="table table-striped">
+            <thead>
+          
+            </thead>
+            <tbody id="categories">
+
+            </tbody>
+        </table>
     </div>
+
 </div>
 
 <script>
@@ -126,76 +134,39 @@
     }
 
     var dbCategories = firebase.database().ref("Posts");
-    var postCollection = document.querySelector("#posts-collection");
 
-    function createPost(title, time, content,image) {
-            let div = document.createElement("div");
-            div.setAttribute("class", "col-md-4");
+    dbCategories.on("value", function (categories) {
 
-            var h2 = document.createElement("h3");
-            var p = document.createElement("p");
-            var small = document.createElement("small");
-            var img = document.createElement("img");
-            img.setAttribute(
-                "src",image    
-            );
-            img.setAttribute(
-                "width", "350"
-            );
-             img.setAttribute(
-            "height", "250"
-        );
+        if (categories.exists()) {
+            var categorieshtml = "";
+            categories.forEach(function (category) {
 
-            
-            h2.textContent = title;
-            small.textContent = time;
-            p.textContent = content;
-            img.textContent = image;
+                categorieshtml += "<tr>";
 
-            div.appendChild(h2);
-            div.appendChild(small);
-            div.appendChild(img);
-            div.appendChild(p);
-            
+                //for category name
+                categorieshtml += "<td>";
+                categorieshtml += category.key;
+                categorieshtml += "</td>";
 
-            postCollection.appendChild(div);
+                //for category description
+                categorieshtml += "<td>";
+                categorieshtml += category.val().description;
+                categorieshtml += "</td>";
 
+                //for category thumbnail
+                categorieshtml += "<td> <img width='250' height='150' src='";
+                categorieshtml += category.val().picture;
+                categorieshtml += "' /></td>";
+
+
+                categorieshtml += "</tr>";
+
+
+            });
+
+            $("#categories").html(categorieshtml);
         }
-        function getPosts() {
-                dbCategories.once('value')
-                    .then(function(snapshot){
-                        snapshot.forEach(function (childSnapshot) {
-                            createPost(
-                                childSnapshot.val().title,
-                                childSnapshot.val().timeStamp,
-                                childSnapshot.val().description,
-                                childSnapshot.val().picture
-                            );
-                        });
-                    });
-            }
 
-            getPosts();
-        
-    // dbCategories.on("value", function (categories) {
-
-    //     if (categories.exists()) {
-    //         var title = "";
-    //         var desc = "";
-    //         var image = "";
-    //         var time = "";
-
-    //         categories.forEach(function (category) {
-    //             title += category.val().title;
-    //             desc += category.val().description;
-    //             time += category.val().timeStamp;
-    //             image += category.val().picture;
-
-                
-    //         });
-    //         createPost(title, time, desc, image);
-    //     }
-
-    // });
+    });
 
 </script>

@@ -75,7 +75,7 @@
         previewWallpaper(this);
     });
 
-    var dbCategories = firebase.database().ref("All_");
+    var dbCategories = firebase.database().ref("All_Image_Uploads_Database");
 
     dbCategories.once("value").then(function(categories){
 
